@@ -64,4 +64,4 @@ Yeyder Otero Galván — `yeyderotero@gmail.com` — [@yeydersha](https://github
 
 ## Estado actual
 
-Portafolio terminado y versionado en GitHub. Las 227 pruebas, la comprobación de tipos, ESLint y el build de producción se ejecutan correctamente. El repositorio no incluye configuración de despliegue automático.
+Portafolio terminado y versionado en GitHub. Las 227 pruebas, la comprobación de tipos, ESLint y el build de producción se ejecutan correctamente. La versión pública está disponible en `https://portafolio-yeyder.vercel.app`. Los despliegues se gestionan externamente mediante la integración de Vercel con GitHub, que publica los cambios al hacer push a `main`; el repositorio no incluye archivos de configuración de despliegue.
