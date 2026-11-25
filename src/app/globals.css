@@ -1,0 +1,163 @@
+﻿/* Tailwind CSS v4 — importación oficial (los directivos @tailwind fueron eliminados en v4) */
+@import "tailwindcss";
+
+/*
+ * Tokens del sistema expuestos al tema de Tailwind.
+ * @theme inline hace que las utilidades (bg-primary, text-muted, border-border...)
+ * referencien directamente las variables de :root, respetando el cambio de tema.
+ */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: #061a15;
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: #2b0b0b;
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-border: var(--glass-border);
+  --color-accent: var(--primary);
+  --color-ring: var(--primary);
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "SF Mono", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius-glass);
+}
+
+/* CSS Variables - Root (Light mode) */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Design System Tokens - Colors */
+  --primary: #00d4aa;
+  --secondary: #ff6b6b;
+  --muted: #8888a0;
+
+  /* Surfaces */
+  --surface: #12121a;
+  --card: rgba(255, 255, 255, 0.03);
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "SF Mono", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+
+  /* Spacing and Dimensions */
+  --radius: 8px;
+  --radius-glass: 12px;
+
+  /* Glassmorphism variables */
+  --glass-blur: 20px;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.05);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-none: none;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0f;
+    --foreground: #e0e0e6;
+    --primary: #00d4aa;
+    --secondary: #ff6b6b;
+    --muted: #8888a0;
+    --surface: #12121a;
+    --card: rgba(255, 255, 255, 0.03);
+    --radius: 8px;
+    --radius-glass: 12px;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-none: none;
+  }
+}
+
+/* [data-mode='dark'] override */
+[data-mode='dark'] {
+  --background: #0a0a0f;
+  --foreground: #e0e0e6;
+  --primary: #00d4aa;
+  --secondary: #ff6b6b;
+  --muted: #8888a0;
+  --surface: #12121a;
+  --card: rgba(255, 255, 255, 0.03);
+  --radius: 8px;
+  --radius-glass: 12px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-none: none;
+}
+
+/* Base styles */
+html {
+  /* El ancla #proyectos conserva su URL; el desplazamiento lo suaviza el navegador. */
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Resplandor ambiental para el efecto glass (decorativo, no interactivo) */
+.ambient-glow {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(0, 212, 170, 0.14), transparent 42%),
+    radial-gradient(circle at 82% 12%, rgba(255, 107, 107, 0.11), transparent 38%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--muted);
+  border-radius: 4px;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Entrada breve solo en el flujo portafolio ↔ Fiore; sin cambios de tamaño. */
+[data-route-surface="scoped"] {
+  animation: route-surface-in 220ms ease-out both;
+}
+
+@keyframes route-surface-in {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Reduced motion: refuerzo de MotionConfig reducedMotion="user" */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Las secciones nuevas nunca dependen de la animación para ser legibles. */
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

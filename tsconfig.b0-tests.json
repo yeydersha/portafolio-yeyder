@@ -1,0 +1,35 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "incremental": false,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./.b0-tests"
+  },
+  "include": [
+    "src/data/fiore-demo/**/*.ts",
+    "src/lib/fiore-demo/**/*.ts",
+    "src/data/taquilla-cine-demo/**/*.ts",
+    "src/lib/taquilla-cine-demo/**/*.ts",
+    "src/lib/project-presentation-motion.ts",
+    "src/components/taquilla-cine-demo/taquilla-navigation.ts",
+    "tests/fiore-demo-b0.test.ts",
+    "tests/taquilla-demo-b1.test.ts",
+    "tests/taquilla-demo-b2.test.ts",
+    "tests/taquilla-demo-b3.test.ts",
+    "tests/taquilla-demo-b4.test.ts",
+    "tests/taquilla-demo-b5.test.ts",
+    "tests/taquilla-demo-b6.test.ts",
+    "tests/taquilla-demo-b7.test.ts",
+    "tests/fiore-demo-b2.test.ts",
+    "tests/fiore-demo-b3.test.ts",
+    "tests/fiore-demo-b4.test.ts",
+    "tests/fiore-demo-b5.test.ts",
+    "tests/fiore-demo-b6.test.ts",
+    "tests/project-presentation.test.ts",
+    "tests/project-presentation-motion.test.ts",
+    "tests/route-transition.test.ts",
+    "tests/m6-professional-content.test.ts"
+  ]
+}

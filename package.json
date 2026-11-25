@@ -1,0 +1,33 @@
+{
+  "name": "nxt",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test:b0": "tsc -p tsconfig.b0-tests.json && node --test .b0-tests/tests/fiore-demo-b0.test.js .b0-tests/tests/fiore-demo-b2.test.js .b0-tests/tests/fiore-demo-b3.test.js .b0-tests/tests/fiore-demo-b4.test.js .b0-tests/tests/fiore-demo-b5.test.js .b0-tests/tests/fiore-demo-b6.test.js .b0-tests/tests/project-presentation.test.js .b0-tests/tests/project-presentation-motion.test.js .b0-tests/tests/route-transition.test.js .b0-tests/tests/m6-professional-content.test.js .b0-tests/tests/taquilla-demo-b1.test.js .b0-tests/tests/taquilla-demo-b2.test.js .b0-tests/tests/taquilla-demo-b3.test.js .b0-tests/tests/taquilla-demo-b4.test.js .b0-tests/tests/taquilla-demo-b5.test.js .b0-tests/tests/taquilla-demo-b6.test.js .b0-tests/tests/taquilla-demo-b7.test.js",
+    "test:b2": "npm run test:b0",
+    "test:b3": "npm run test:b0",
+    "test:b4": "npm run test:b0",
+    "test:b5": "npm run test:b0"
+  },
+  "dependencies": {
+    "lucide-react": "^1.78.0",
+    "motion": "^14.14.0",
+    "next": "16.4.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "4.3.3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.6",
+    "tailwindcss": "4.3.3",
+    "typescript": "^5"
+  }
+}

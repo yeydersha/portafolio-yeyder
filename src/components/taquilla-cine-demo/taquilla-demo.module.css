@@ -1,0 +1,1425 @@
+/**
+ * C3 — Estilos aislados de la demo de Taquilla de Cine.
+ *
+ * Todas las variables están prefijadas con `--taquilla-*` y se declaran en
+ * `.page`. No se usan utilidades de Tailwind ni los tokens oscuros del
+ * portafolio dentro del sistema académico; `globals.css` permanece intacto.
+ */
+
+.page {
+  --taquilla-sidebar: #1e293b;
+  --taquilla-background: #f8fafc;
+  --taquilla-surface: #ffffff;
+  --taquilla-blue: #2563eb;
+  --taquilla-blue-dark: #1d4ed8;
+  --taquilla-text: #1e293b;
+  --taquilla-text-muted: #64748b;
+  --taquilla-border: #e2e8f0;
+  --taquilla-info: #eff6ff;
+  --taquilla-success: #15803d;
+  --taquilla-error: #dc2626;
+
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: clamp(16px, 3vw, 44px);
+  overflow-x: hidden;
+  background: var(--taquilla-background);
+  color: var(--taquilla-text);
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.page *,
+.page *::before,
+.page *::after {
+  box-sizing: border-box;
+}
+
+.page :focus-visible {
+  outline: 2px solid var(--taquilla-blue);
+  outline-offset: 2px;
+}
+
+.skipLink {
+  position: absolute;
+  z-index: 200;
+  left: 16px;
+  top: -60px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--taquilla-surface);
+  color: var(--taquilla-blue-dark);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: top 160ms ease;
+}
+
+.skipLink:focus {
+  top: 12px;
+}
+
+.intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  width: min(100%, 1180px);
+  margin: 0 auto 20px;
+}
+
+.introText {
+  min-width: 0;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.title {
+  margin: 0;
+  color: var(--taquilla-text);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.demoBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid var(--taquilla-border);
+  border-radius: 999px;
+  background: var(--taquilla-info);
+  color: var(--taquilla-blue-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.introSubtitle {
+  max-width: 68ch;
+  margin: 8px 0 0;
+  color: var(--taquilla-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 9px 15px;
+  border: 1px solid var(--taquilla-border);
+  border-radius: 10px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 650;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.buttonSecondary {
+  background: var(--taquilla-surface);
+  color: var(--taquilla-text);
+}
+
+.buttonSecondary:hover {
+  border-color: var(--taquilla-blue);
+  background: var(--taquilla-info);
+}
+
+.buttonReset {
+  border-color: var(--taquilla-blue);
+  background: var(--taquilla-blue);
+  color: var(--taquilla-surface);
+}
+
+.buttonReset:hover {
+  border-color: var(--taquilla-blue-dark);
+  background: var(--taquilla-blue-dark);
+}
+
+.buttonIcon {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+}
+
+.frame {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid var(--taquilla-border);
+  border-radius: 18px;
+  background: var(--taquilla-surface);
+  box-shadow: 0 18px 48px rgba(30, 41, 59, 0.09);
+}
+
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 0 18px;
+  border-bottom: 1px solid var(--taquilla-border);
+  background: var(--taquilla-background);
+}
+
+.chromeDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: 0 0 9px;
+}
+
+.dotBlue {
+  background: var(--taquilla-blue);
+}
+
+.dotSlate {
+  background: var(--taquilla-sidebar);
+}
+
+.dotInfo {
+  background: var(--taquilla-border);
+}
+
+.chromeLabel {
+  margin-left: 8px;
+  color: var(--taquilla-text-muted);
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.notice {
+  margin: 0;
+  padding: 11px 18px;
+  border-bottom: 1px solid var(--taquilla-border);
+  background: var(--taquilla-info);
+  color: var(--taquilla-blue-dark);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.appShell {
+  position: relative;
+  display: flex;
+  min-height: 620px;
+  overflow-x: clip;
+  background: var(--taquilla-background);
+  color: var(--taquilla-text);
+}
+
+.sidebar {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex: 0 0 236px;
+  flex-direction: column;
+  width: 236px;
+  border-right: 1px solid rgba(255, 255, 255, 0.09);
+  background: var(--taquilla-sidebar);
+  color: var(--taquilla-surface);
+  visibility: visible;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 68px;
+  padding: 0 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.wordmarkIcon {
+  width: 23px;
+  height: 23px;
+  flex: 0 0 23px;
+  color: #93c5fd;
+}
+
+.iconButton {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.iconButton:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.iconButtonSvg {
+  width: 20px;
+  height: 20px;
+}
+
+.closeMenuButton {
+  display: none;
+  color: var(--taquilla-surface);
+}
+
+.nav {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 12px;
+  overflow-y: auto;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.navItem:hover {
+  border-color: var(--taquilla-blue);
+  background: rgba(37, 99, 235, 0.28);
+  color: var(--taquilla-surface);
+}
+
+.navItemActive,
+.navItemActive:hover {
+  border-color: var(--taquilla-blue);
+  background: var(--taquilla-blue);
+  color: var(--taquilla-surface);
+}
+
+.navIcon {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+  color: #bfdbfe;
+}
+
+.navItemActive .navIcon {
+  color: var(--taquilla-surface);
+}
+
+.sidebarFooter {
+  padding: 15px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+}
+
+.navOverlay {
+  display: none;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.mobileTopbar {
+  display: none;
+}
+
+.contentBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.contentBody:focus {
+  outline: none;
+}
+
+.mainContent {
+  min-width: 0;
+  padding: clamp(22px, 3vw, 40px);
+}
+
+.viewHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 22px;
+}
+
+.eyebrow {
+  color: var(--taquilla-blue);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.viewTitle {
+  margin: 0;
+  color: var(--taquilla-text);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+
+.viewSubtitle {
+  max-width: 60ch;
+  margin: 0;
+  color: var(--taquilla-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.placeholderCard {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--taquilla-border);
+  border-radius: 14px;
+  background: var(--taquilla-surface);
+}
+
+.placeholderHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 18px;
+  border-bottom: 1px solid var(--taquilla-border);
+}
+
+.placeholderIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 10px;
+  background: var(--taquilla-info);
+  color: var(--taquilla-blue);
+}
+
+.placeholderIconSvg {
+  width: 22px;
+  height: 22px;
+}
+
+.placeholderHeading {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.placeholderTitle {
+  margin: 0;
+  color: var(--taquilla-text);
+  font-size: 1rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.placeholderBadge {
+  display: inline-flex;
+  padding: 4px 9px;
+  border: 1px solid var(--taquilla-border);
+  border-radius: 999px;
+  background: var(--taquilla-info);
+  color: var(--taquilla-blue-dark);
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.placeholderBody {
+  min-width: 0;
+  padding: 18px;
+}
+
+.placeholderText {
+  max-width: 66ch;
+  margin: 0 0 20px;
+  color: var(--taquilla-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.placeholderPreview {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  padding: 20px;
+  border: 1px dashed var(--taquilla-border);
+  border-radius: 12px;
+  background: var(--taquilla-background);
+}
+
+.previewLineWide,
+.previewLineMedium,
+.previewLineShort {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--taquilla-border);
+}
+
+.previewLineWide {
+  width: 88%;
+}
+
+.previewLineMedium {
+  width: 64%;
+}
+
+.previewLineShort {
+  width: 38%;
+}
+
+.academicFooter {
+  width: min(100%, 1180px);
+  margin: 18px auto 0;
+  color: var(--taquilla-text-muted);
+  font-size: 0.76rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.academicFooter p {
+  margin: 0;
+}
+
+.dialogBackdrop {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.62);
+}
+
+.dialog {
+  width: min(100%, 440px);
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--taquilla-border);
+  border-radius: 16px;
+  background: var(--taquilla-surface);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.28);
+  color: var(--taquilla-text);
+}
+
+.dialogIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  background: var(--taquilla-info);
+  color: var(--taquilla-blue);
+}
+
+.dialogIconSvg {
+  width: 22px;
+  height: 22px;
+}
+
+.dialogTitle {
+  margin: 0 0 8px;
+  color: var(--taquilla-text);
+  font-size: 1.25rem;
+  font-weight: 750;
+}
+
+.dialogText {
+  margin: 0 0 22px;
+  color: var(--taquilla-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.dialogActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.dialogButton {
+  min-height: 38px;
+  padding: 8px 16px;
+  border: 1px solid var(--taquilla-border);
+  border-radius: 9px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.dialogButtonGhost {
+  background: var(--taquilla-surface);
+  color: var(--taquilla-text);
+}
+
+.dialogButtonGhost:hover {
+  background: var(--taquilla-info);
+}
+
+.dialogButtonPrimary {
+  border-color: var(--taquilla-blue);
+  background: var(--taquilla-blue);
+  color: var(--taquilla-surface);
+}
+
+.dialogButtonPrimary:hover {
+  border-color: var(--taquilla-blue-dark);
+  background: var(--taquilla-blue-dark);
+}
+
+/* C4 — Catálogo interactivo de películas. */
+.peliculaPanel,
+.funcionPanel {
+  min-width: 0;
+  margin-bottom: 20px;
+  border: 1px solid var(--taquilla-border);
+  border-radius: 14px;
+  background: var(--taquilla-surface);
+}
+
+.panelCabecera {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 18px;
+  border-bottom: 1px solid var(--taquilla-border);
+}
+
+.panelTitle {
+  margin: 0;
+  color: var(--taquilla-text);
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+
+.panelNote {
+  margin: 6px 0 0;
+  color: var(--taquilla-text-muted);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.panelActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.buttonSmall {
+  min-height: 32px;
+  padding: 6px 10px;
+  font-size: 0.78rem;
+}
+
+.buttonDanger {
+  border-color: var(--taquilla-error);
+  background: var(--taquilla-error);
+  color: var(--taquilla-surface);
+}
+
+.buttonDanger:hover {
+  border-color: #b91c1c;
+  background: #b91c1c;
+}
+
+.buttonDangerGhost {
+  background: var(--taquilla-surface);
+  color: var(--taquilla-error);
+}
+
+.buttonDangerGhost:hover {
+  border-color: var(--taquilla-error);
+  background: #fef2f2;
+}
+
+.feedback {
+  margin-bottom: 18px;
+  padding: 11px 16px;
+  border: 1px solid var(--taquilla-border);
+  border-radius: 10px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.feedbackSuccess {
+  border-color: var(--taquilla-success);
+  background: #f0fdf4;
+  color: var(--taquilla-success);
+}
+
+.feedbackError {
+  border-color: var(--taquilla-error);
+  background: #fef2f2;
+  color: var(--taquilla-error);
+}
+
+.peliculaForm,
+.funcionForm,
+.fichas {
+  margin: 0;
+  padding: 18px;
+}
+
+/* C5 — bloque informativo del formulario y colores de disponibilidad. */
+.infoCupos {
+  margin: 14px 0 0;
+  padding: 13px 15px;
+  border: 1px solid var(--taquilla-border);
+  border-radius: 10px;
+  background: var(--taquilla-background);
+}
+
+.infoCupos dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin: 0;
+}
+
+.infoCupos dt {
+  color: var(--taquilla-text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.infoCupos dd {
+  margin: 4px 0 0;
+  color: var(--taquilla-text);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.destacado {
+  color: var(--taquilla-blue-dark);
+}
+
+.cuposDisponibles {
+  color: var(--taquilla-success);
+  font-weight: 700;
+}
+
+.cuposPocos {
+  color: #a16207;
+  font-weight: 700;
+}
+
+.cuposAgotados {
+  color: var(--taquilla-error);
+  font-weight: 700;
+}
+
+.funcionTitulo {
+  font-weight: 650;
+}
+
+.formFields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.formField {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formField label,
+.searchField label {
+  color: var(--taquilla-text);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.formField input,
+.formField select,
+.searchField input {
+  width: 100%;
+  min-height: 40px;
+  padding: 9px 11px;
+  border: 1px solid var(--taquilla-border);
+  border-radius: 9px;
+  background: var(--taquilla-surface);
+  color: var(--taquilla-text);
+  font: inherit;
+  font-size: 0.88rem;
+}
+
+.formFieldError input,
+.formFieldError select {
+  border-color: var(--taquilla-error);
+}
+
+.fieldHelp {
+  margin: 0;
+  color: var(--taquilla-text-muted);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.fieldError {
+  margin: 0;
+  color: var(--taquilla-error);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.formActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.fichas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+}
+
+.ficha {
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--taquilla-border);
+  border-radius: 10px;
+  background: var(--taquilla-background);
+}
+
+.ficha dt {
+  color: var(--taquilla-text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ficha dd {
+  margin: 6px 0 0;
+  color: var(--taquilla-text);
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.84rem;
+}
+
+.searchField {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 0 18px 18px;
+}
+
+.searchField input {
+  max-width: 420px;
+}
+
+.tableRegion {
+  min-width: 0;
+  overflow-x: auto;
+  border-top: 1px solid var(--taquilla-border);
+}
+
+.peliculaTable,
+.funcionTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.tableCaption {
+  padding: 12px 18px;
+  color: var(--taquilla-text-muted);
+  font-size: 0.78rem;
+  text-align: left;
+}
+
+.peliculaTable th,
+.peliculaTable td,
+.funcionTable th,
+.funcionTable td {
+  padding: 11px 14px;
+  border-top: 1px solid var(--taquilla-border);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.peliculaTable th,
+.funcionTable th {
+  color: var(--taquilla-text-muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.peliculaTable td,
+.funcionTable td {
+  color: var(--taquilla-text);
+  overflow-wrap: anywhere;
+}
+
+.cellLabel {
+  display: none;
+}
+
+.actionsCell {
+  min-width: 270px;
+}
+
+.rowActions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.deleteConfirm {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 230px;
+}
+
+.deleteConfirmText {
+  margin: 0;
+  color: var(--taquilla-error);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.deleteConfirmActions {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.emptyState {
+  padding: 34px 18px 40px;
+  border-top: 1px solid var(--taquilla-border);
+  color: var(--taquilla-text-muted);
+  text-align: center;
+}
+
+.emptyState p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* C6 — Compras simuladas y reportes de taquilla. */
+.buttonPrimary {
+  border-color: var(--taquilla-blue);
+  background: var(--taquilla-blue);
+  color: var(--taquilla-surface);
+}
+
+.buttonPrimary:hover {
+  border-color: var(--taquilla-blue-dark);
+  background: var(--taquilla-blue-dark);
+}
+
+.buttonPrimary:disabled {
+  border-color: var(--taquilla-border);
+  background: var(--taquilla-border);
+  color: var(--taquilla-text-muted);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.comprasPanel,
+.reportesPanel {
+  min-width: 0;
+  margin-bottom: 20px;
+  border: 1px solid var(--taquilla-border);
+  border-radius: 14px;
+  background: var(--taquilla-surface);
+}
+
+.simulacionNota {
+  margin-bottom: 18px;
+  padding: 11px 16px;
+  border: 1px solid var(--taquilla-border);
+  border-left: 4px solid var(--taquilla-blue);
+  border-radius: 10px;
+  background: var(--taquilla-info);
+  color: var(--taquilla-blue-dark);
+  font-size: 0.88rem;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.compraForm,
+.filtroForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 18px;
+}
+
+.filtroForm {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.filtroAcciones {
+  display: flex;
+  align-items: flex-end;
+}
+
+.totalPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  background: var(--taquilla-info);
+}
+
+.totalLabel {
+  color: var(--taquilla-blue-dark);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.totalValue {
+  color: var(--taquilla-blue-dark);
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+
+.totalNote {
+  color: var(--taquilla-text-muted);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.kpiGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin: 0 0 20px;
+}
+
+.kpiCard {
+  min-width: 0;
+  padding: 16px 18px;
+  border: 1px solid var(--taquilla-border);
+  border-radius: 12px;
+  background: var(--taquilla-surface);
+}
+
+.kpiCard dt {
+  color: var(--taquilla-text-muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.kpiCard dd {
+  margin: 8px 0 0;
+  color: var(--taquilla-blue-dark);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.compraTable,
+.reporteTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.compraTable th,
+.compraTable td,
+.reporteTable th,
+.reporteTable td {
+  padding: 11px 14px;
+  border-top: 1px solid var(--taquilla-border);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.compraTable th,
+.reporteTable th {
+  color: var(--taquilla-text-muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.compraTable td,
+.reporteTable td {
+  color: var(--taquilla-text);
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 720px) {
+  .filtroForm {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filtroAcciones {
+    grid-column: 1 / -1;
+  }
+
+  .kpiGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 720px) {
+  .formFields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .formFieldWide {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .tableRegion {
+    overflow-x: visible;
+    padding: 0 15px 15px;
+    border-top: 0;
+  }
+
+  .peliculaTable,
+  .peliculaTable tbody,
+  .peliculaTable tr,
+  .peliculaTable td,
+  .funcionTable,
+  .funcionTable tbody,
+  .funcionTable tr,
+  .funcionTable td,
+  .compraTable,
+  .compraTable tbody,
+  .compraTable tr,
+  .compraTable td,
+  .reporteTable,
+  .reporteTable tbody,
+  .reporteTable tr,
+  .reporteTable td {
+    display: block;
+    width: 100%;
+  }
+
+  .peliculaTable thead,
+  .funcionTable thead,
+  .compraTable thead,
+  .reporteTable thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .tableCaption {
+    padding: 10px 0;
+  }
+
+  .peliculaTable tr,
+  .funcionTable tr,
+  .compraTable tr,
+  .reporteTable tr {
+    margin-bottom: 12px;
+    padding: 10px 13px;
+    border: 1px solid var(--taquilla-border);
+    border-radius: 12px;
+    background: var(--taquilla-surface);
+  }
+
+  .peliculaTable td,
+  .funcionTable td,
+  .compraTable td,
+  .reporteTable td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 7px 0;
+    border-top: 0;
+    border-bottom: 1px solid var(--taquilla-border);
+    text-align: right;
+  }
+
+  .peliculaTable td:last-child,
+  .funcionTable td:last-child {
+    display: block;
+    border-bottom: 0;
+    padding-top: 12px;
+  }
+
+  .compraTable td:last-child,
+  .reporteTable td:last-child {
+    border-bottom: 0;
+  }
+
+  .cellLabel {
+    display: inline;
+    flex: 0 0 auto;
+    color: var(--taquilla-text-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .actionsCell {
+    min-width: 0;
+  }
+
+  .deleteConfirm {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .intro {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .appShell {
+    min-height: 600px;
+  }
+
+  .sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    box-shadow: 14px 0 36px rgba(15, 23, 42, 0.24);
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 220ms ease, visibility 0s linear 220ms;
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform 220ms ease;
+  }
+
+  /* El panel ya es visible; forzar a sus hijos evita que hereden un valor
+     intermedio de `visibility` mientras se aplica la transición. */
+  .sidebarOpen .sidebarHeader,
+  .sidebarOpen .nav,
+  .sidebarOpen .sidebarFooter {
+    visibility: visible;
+  }
+
+  .closeMenuButton {
+    display: inline-grid;
+  }
+
+  .navOverlay {
+    position: absolute;
+    z-index: 4;
+    inset: 0;
+    display: block;
+    background: rgba(15, 23, 42, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 220ms ease, visibility 0s linear 220ms;
+  }
+
+  .navOverlayVisible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 220ms ease, visibility 0s linear 0s;
+  }
+
+  .mobileTopbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--taquilla-border);
+    background: var(--taquilla-surface);
+  }
+
+  .menuButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 11px;
+    border: 1px solid var(--taquilla-border);
+    border-radius: 9px;
+    background: var(--taquilla-background);
+    color: var(--taquilla-blue-dark);
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 650;
+    cursor: pointer;
+  }
+
+  .menuButton:hover {
+    background: var(--taquilla-info);
+  }
+
+  .menuIcon {
+    width: 19px;
+    height: 19px;
+  }
+
+  .mobileTopbarLabel {
+    color: var(--taquilla-text-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .mainContent {
+    padding: 22px 16px 30px;
+  }
+
+  .placeholderHeader,
+  .placeholderBody {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding: 14px;
+  }
+
+  .button {
+    flex: 1 1 auto;
+    white-space: normal;
+  }
+
+  .chromeLabel {
+    font-size: 0.61rem;
+    letter-spacing: 0.04em;
+  }
+
+  .placeholderHeader {
+    flex-wrap: wrap;
+  }
+
+  .placeholderPreview {
+    padding: 14px;
+  }
+
+  .dialogActions {
+    flex-direction: column-reverse;
+  }
+
+  .dialogButton {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skipLink,
+  .button,
+  .navItem,
+  .sidebar,
+  .navOverlay {
+    transition: none;
+  }
+
+  .button:hover {
+    transform: none;
+  }
+}

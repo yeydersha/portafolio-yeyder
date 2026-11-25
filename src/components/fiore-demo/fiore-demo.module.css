@@ -1,0 +1,1968 @@
+/**
+ * B1/B2 — Estilos aislados de la demo Fiore.
+ *
+ * Todas las variables están prefijadas con `--fiore-*` y se declaran en `.page`.
+ * No se modifican los tokens globales del portafolio ni se usan utilidades de
+ * Tailwind dentro del área de la aplicación Fiore. B2 agrega estilos del
+ * dashboard sin alterar `globals.css` ni los tokens globales.
+ */
+
+.page {
+  --fiore-wine-950: #500014;
+  --fiore-wine-900: #722f40;
+  --fiore-wine-800: #8c2832;
+  --fiore-wine-700: #a82e3c;
+  --fiore-wine-600: #c4384a;
+  --fiore-wine-300: #f1a5b1;
+  --fiore-wine-100: #fce7eb;
+  --fiore-wine-50: #fdf8f9;
+  --fiore-warm: #fffdfc;
+  --fiore-ink: #382a29;
+  --fiore-ink-muted: #78675d;
+  --fiore-beige: #f8e9d8;
+  --fiore-beige-border: #e7d9ca;
+  --fiore-rose: #ead8d4;
+  --fiore-chrome: #2a0d17;
+
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: clamp(16px, 3vw, 48px);
+  overflow-x: hidden;
+  color: #e0e0e6;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(80, 0, 20, 0.28), transparent 42%),
+    radial-gradient(circle at 88% 8%, rgba(196, 56, 74, 0.14), transparent 38%),
+    transparent;
+}
+
+.page *,
+.page *::before,
+.page *::after {
+  box-sizing: border-box;
+}
+
+.page :focus-visible {
+  outline: 2px solid var(--fiore-wine-300);
+  outline-offset: 2px;
+}
+
+/* ---------- Cabecera exterior del portafolio ---------- */
+
+.intro {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto clamp(16px, 2.5vw, 28px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.introText {
+  min-width: 0;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.title {
+  margin: 0;
+  color: #fffdfc;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.demoBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid rgba(241, 165, 177, 0.4);
+  border-radius: 999px;
+  background: rgba(80, 0, 20, 0.5);
+  color: var(--fiore-wine-300);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.introSubtitle {
+  margin: 10px 0 0;
+  max-width: 620px;
+  color: rgba(224, 224, 230, 0.68);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 9px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f5f5f7;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.buttonSecondary:hover {
+  border-color: rgba(241, 165, 177, 0.5);
+}
+
+.buttonReset {
+  border-color: rgba(241, 165, 177, 0.45);
+  background: rgba(80, 0, 20, 0.55);
+}
+
+.buttonReset:hover {
+  border-color: var(--fiore-wine-300);
+  background: rgba(114, 47, 64, 0.75);
+}
+
+.buttonIcon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+
+/* ---------- Marco decorativo ---------- */
+
+.frame {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: var(--fiore-warm);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.48);
+}
+
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 16px;
+  background: var(--fiore-chrome);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chromeDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0.85;
+}
+
+.dotWine {
+  background: #d65062;
+}
+
+.dotBeige {
+  background: #e7d9ca;
+}
+
+.dotRose {
+  background: #f1a5b1;
+}
+
+.chromeLabel {
+  margin-left: 12px;
+  color: rgba(255, 253, 252, 0.5);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.notice {
+  margin: 0;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--fiore-wine-100);
+  background: var(--fiore-wine-100);
+  color: var(--fiore-wine-900);
+  font-size: 0.85rem;
+}
+
+/* ---------- Aplicación Fiore interna ---------- */
+
+.appShell {
+  position: relative;
+  display: flex;
+  min-height: 580px;
+  background: var(--fiore-warm);
+  color: var(--fiore-ink);
+  color-scheme: light;
+}
+
+.appShell :focus-visible {
+  outline-color: var(--fiore-wine-700);
+}
+
+.sidebar {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex: 0 0 248px;
+  flex-direction: column;
+  width: 248px;
+  background: var(--fiore-wine-950);
+  border-right: 1px solid rgba(255, 255, 255, 0.09);
+  color: var(--fiore-warm);
+  visibility: visible;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 64px;
+  padding: 0 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.01em;
+}
+
+.wordmarkIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--fiore-wine-300);
+}
+
+.iconButton {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.iconButton:hover {
+  background: rgba(140, 40, 50, 0.5);
+}
+
+.iconButtonSvg {
+  width: 22px;
+  height: 22px;
+}
+
+.closeMenuButton {
+  display: none;
+  color: var(--fiore-warm);
+}
+
+.nav {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 12px;
+  overflow-y: auto;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: rgba(255, 253, 252, 0.82);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.navItem:hover {
+  border-color: var(--fiore-wine-800);
+  background: rgba(140, 40, 50, 0.45);
+  color: var(--fiore-warm);
+}
+
+.navItemActive,
+.navItemActive:hover {
+  border-color: var(--fiore-wine-800);
+  background: var(--fiore-wine-900);
+  color: var(--fiore-warm);
+}
+
+.navIcon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  color: rgba(255, 253, 252, 0.78);
+}
+
+.navItemActive .navIcon {
+  color: var(--fiore-warm);
+}
+
+.sidebarFooter {
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  color: rgba(255, 253, 252, 0.6);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+.navOverlay {
+  display: none;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.mobileTopbar {
+  display: none;
+}
+
+.contentBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.mainContent {
+  min-width: 0;
+  padding: clamp(20px, 3vw, 36px);
+}
+
+.viewHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.viewTitle {
+  margin: 0;
+  color: var(--fiore-wine-900);
+  font-size: clamp(1.55rem, 2.4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.viewSubtitle {
+  margin: 0;
+  color: var(--fiore-wine-700);
+  font-size: 0.95rem;
+}
+
+.sectionCard {
+  overflow: hidden;
+  border: 1px solid var(--fiore-beige-border);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(80, 0, 20, 0.04);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--fiore-beige-border);
+}
+
+.cardIcon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  border-radius: 10px;
+  background: var(--fiore-wine-100);
+  color: var(--fiore-wine-700);
+}
+
+.cardHeaderIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.cardTitle {
+  margin: 0;
+  color: var(--fiore-wine-900);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.cardBadge {
+  margin-left: auto;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--fiore-beige);
+  color: var(--fiore-wine-700);
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cardBody {
+  padding: 36px 20px 40px;
+  text-align: center;
+}
+
+.emptyIcon {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 14px;
+  color: var(--fiore-wine-300);
+}
+
+.emptyTitle {
+  margin: 0 0 8px;
+  color: var(--fiore-wine-800);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.emptyText {
+  max-width: 520px;
+  margin: 0 auto;
+  color: var(--fiore-ink-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* ---------- B2 — Dashboard funcional ---------- */
+
+.dashboardIntro {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.dashboardMeta {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid var(--fiore-beige-border);
+  border-radius: 999px;
+  background: var(--fiore-wine-50);
+  color: var(--fiore-wine-700);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.projectionBanner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 22px;
+  padding: 14px 16px;
+  border: 1px solid #efd7a6;
+  border-left: 4px solid #c98a1d;
+  border-radius: 12px;
+  background: #fffaf0;
+  color: #6b4a12;
+}
+
+.projectionIcon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border-radius: 10px;
+  background: #fff2d9;
+  color: #9a6410;
+}
+
+.projectionIcon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.projectionTitle {
+  margin: 0 0 4px;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.projectionCopy {
+  margin: 0;
+  color: #7d5b22;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.statCard {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--fiore-beige-border);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(80, 0, 20, 0.04);
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--fiore-wine-300);
+}
+
+.statCardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.statCardText {
+  min-width: 0;
+}
+
+.statLabel {
+  margin: 0 0 8px;
+  color: var(--fiore-wine-700);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.statValue {
+  margin: 0;
+  color: var(--fiore-wine-900);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+
+.statHint {
+  margin: 10px 0 0;
+  color: var(--fiore-ink-muted);
+  font-size: 0.74rem;
+}
+
+.statIcon,
+.panelIcon,
+.salesIcon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+
+.statIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+}
+
+.statIcon svg,
+.panelIcon svg {
+  width: 21px;
+  height: 21px;
+}
+
+.salesIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+}
+
+.salesIcon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.toneWine {
+  background: var(--fiore-wine-100);
+  color: var(--fiore-wine-700);
+}
+
+.toneGreen {
+  background: #e7f5ec;
+  color: #26734a;
+}
+
+.toneAmber {
+  background: #fff2d9;
+  color: #9a6410;
+}
+
+.toneRose {
+  background: #fde8ea;
+  color: #b02a3b;
+}
+
+.toneBlue {
+  background: #e7f0fb;
+  color: #2d5f9e;
+}
+
+.salesSummary {
+  margin-bottom: 24px;
+  padding: 16px 18px;
+  border: 1px solid var(--fiore-beige-border);
+  border-radius: 14px;
+  background: var(--fiore-wine-50);
+}
+
+.salesHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.salesTitle {
+  margin: 0;
+  color: var(--fiore-wine-900);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.salesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.salesMetric {
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--fiore-beige-border);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.salesMetricLabel {
+  margin: 0 0 5px;
+  color: var(--fiore-ink-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.salesMetricValue {
+  margin: 0;
+  color: var(--fiore-wine-900);
+  font-size: 1rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.salesNote {
+  margin: 12px 0 0;
+  color: var(--fiore-ink-muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.panelGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.panelCard {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--fiore-beige-border);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 18px;
+  border-bottom: 1px solid var(--fiore-beige-border);
+}
+
+.panelIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+.panelTitle {
+  min-width: 0;
+  margin: 0;
+  color: var(--fiore-wine-900);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.panelBadge {
+  margin-left: auto;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--fiore-beige);
+  color: var(--fiore-wine-700);
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.panelBody {
+  padding: 14px 16px 16px;
+}
+
+.panelList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 340px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.productRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+  padding: 12px 13px;
+  border: 1px solid var(--fiore-beige-border);
+  border-radius: 10px;
+  background: var(--fiore-wine-50);
+}
+
+.productInfo {
+  min-width: 0;
+}
+
+.productName {
+  margin: 0 0 4px;
+  color: var(--fiore-wine-900);
+  font-size: 0.9rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.productSku {
+  margin: 0;
+  color: var(--fiore-ink-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.productMetrics {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  max-width: 48%;
+}
+
+.stockBadge {
+  padding: 4px 9px;
+  border-radius: 8px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.stockBadgeLow {
+  background: #fff2d9;
+  color: #9a6410;
+}
+
+.stockBadgeOut {
+  background: #fde8ea;
+  color: #b02a3b;
+}
+
+.stockBadgeRecent {
+  background: #e7f0fb;
+  color: #2d5f9e;
+}
+
+.moneySmall,
+.dateSmall {
+  color: var(--fiore-wine-700);
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.dateSmall {
+  color: var(--fiore-ink-muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.rank {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  border-radius: 8px;
+  background: var(--fiore-wine-100);
+  color: var(--fiore-wine-700);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.profitValue {
+  color: #26734a;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.marginSmall {
+  color: var(--fiore-ink-muted);
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.emptyState {
+  padding: 26px 16px 30px;
+  text-align: center;
+}
+
+.emptyStateIcon {
+  display: block;
+  width: 38px;
+  height: 38px;
+  margin: 0 auto 10px;
+  color: var(--fiore-wine-300);
+}
+
+.emptyStateTitle {
+  margin: 0 0 6px;
+  color: var(--fiore-wine-800);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.emptyStateText {
+  margin: 0;
+  color: var(--fiore-ink-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* ---------- B3 — Inventario y producto ---------- */
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.inventoryIntro {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.primaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 9px 16px;
+  border: 1px solid var(--fiore-wine-950);
+  border-radius: 10px;
+  background: var(--fiore-wine-950);
+  color: var(--fiore-warm);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.primaryAction:hover {
+  transform: translateY(-1px);
+  border-color: var(--fiore-wine-800);
+  background: var(--fiore-wine-800);
+}
+
+.primaryActionIcon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+
+.inventoryToolbar {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  padding: 16px;
+  border: 1px solid var(--fiore-beige-border);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.toolbarField {
+  flex: 1 1 150px;
+  min-width: 0;
+}
+
+.toolbarField:first-child {
+  flex: 2 1 240px;
+}
+
+.toolbarLabel {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--fiore-wine-700);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.searchWrap {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  width: 16px;
+  height: 16px;
+  color: var(--fiore-ink-muted);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.searchInput {
+  padding-left: 36px;
+}
+
+.control {
+  width: 100%;
+  min-height: 40px;
+  padding: 9px 11px;
+  border: 1px solid var(--fiore-beige-border);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--fiore-ink);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.control:hover {
+  border-color: var(--fiore-wine-300);
+}
+
+.control:focus-visible {
+  outline: 2px solid var(--fiore-wine-700);
+  outline-offset: 1px;
+}
+
+.controlInvalid {
+  border-color: #c4384a;
+  background: #fff8f9;
+}
+
+.textarea {
+  min-height: 64px;
+  resize: vertical;
+}
+
+.inventoryCount {
+  margin: 0 0 12px;
+  color: var(--fiore-ink-muted);
+  font-size: 0.78rem;
+}
+
+.inventoryTableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--fiore-beige-border);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.inventoryTable {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.inventoryTable th,
+.inventoryTable td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--fiore-beige-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.inventoryTable thead th {
+  background: var(--fiore-wine-50);
+  color: var(--fiore-wine-800);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.inventoryTable tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.numericCell {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.tablePrimary {
+  display: block;
+  color: var(--fiore-wine-900);
+  font-weight: 600;
+}
+
+.tableSecondary {
+  display: block;
+  margin-top: 3px;
+  color: var(--fiore-ink-muted);
+  font-size: 0.72rem;
+  overflow-wrap: anywhere;
+}
+
+.stockCell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 4px 9px;
+  border-radius: 8px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.statusActive {
+  background: #e7f5ec;
+  color: #26734a;
+}
+
+.statusInactive {
+  background: #f0ece9;
+  color: #6c5c54;
+}
+
+.stockBadgeAvailable {
+  background: #e7f5ec;
+  color: #26734a;
+}
+
+.actionButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 6px 11px;
+  border: 1px solid var(--fiore-beige-border);
+  border-radius: 8px;
+  background: var(--fiore-wine-50);
+  color: var(--fiore-wine-900);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.actionButton:hover {
+  border-color: var(--fiore-wine-300);
+  background: var(--fiore-beige);
+}
+
+.actionIcon {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+}
+
+.inventoryCards {
+  display: none;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.inventoryCard {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--fiore-beige-border);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.cardHeading {
+  min-width: 0;
+}
+
+.cardProductName {
+  margin: 0 0 4px;
+  color: var(--fiore-wine-900);
+  font-size: 0.95rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.cardSku {
+  margin: 0;
+  color: var(--fiore-ink-muted);
+  font-size: 0.74rem;
+  overflow-wrap: anywhere;
+}
+
+.cardData {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 14px;
+}
+
+.cardDataItem {
+  min-width: 0;
+  padding: 9px 10px;
+  border-radius: 9px;
+  background: var(--fiore-wine-50);
+}
+
+.cardDataItem dt {
+  margin-bottom: 4px;
+  color: var(--fiore-ink-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.cardDataItem dd {
+  margin: 0;
+  color: var(--fiore-wine-900);
+  font-size: 0.8rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.emptyInventory {
+  padding: 34px 20px;
+  border: 1px solid var(--fiore-beige-border);
+  border-radius: 14px;
+  background: #fff;
+  text-align: center;
+}
+
+.emptyInventory .primaryAction {
+  margin-top: 16px;
+}
+
+.emptyInventory .dialogButtonGhost {
+  margin-top: 16px;
+  min-height: 38px;
+  padding: 8px 16px;
+  border: 1px solid var(--fiore-beige-border);
+  border-radius: 9px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.productDialog {
+  width: min(100%, 820px);
+  max-height: min(92vh, 900px);
+  overflow-y: auto;
+}
+
+.internalId {
+  margin: 0 0 16px;
+  color: var(--fiore-ink-muted);
+  font-size: 0.76rem;
+  overflow-wrap: anywhere;
+}
+
+.productForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 16px;
+}
+
+.formField {
+  min-width: 0;
+}
+
+.formFieldWide {
+  grid-column: 1 / -1;
+}
+
+.fieldLabel {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--fiore-wine-900);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.fieldHint {
+  margin: 6px 0 0;
+  color: var(--fiore-ink-muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.fieldError {
+  margin: 6px 0 0;
+  color: #b02a3b;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.checkboxField {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--fiore-wine-900);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.checkboxField input {
+  accent-color: var(--fiore-wine-800);
+}
+
+.manualPriceField {
+  max-width: 280px;
+  margin-top: 12px;
+}
+
+.calculatorCard {
+  padding: 16px;
+  border: 1px solid #efd7a6;
+  border-left: 4px solid #c98a1d;
+  border-radius: 12px;
+  background: #fffaf0;
+}
+
+.calculatorTitle {
+  margin: 0 0 12px;
+  color: #6b4a12;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.calculatorGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+.calculatorItem {
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid #f0dfbd;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.calculatorItem dt {
+  margin-bottom: 5px;
+  color: #8a6524;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.calculatorItem dd {
+  margin: 0;
+  color: var(--fiore-wine-900);
+  font-size: 0.92rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.calculatorNote {
+  margin: 12px 0 0;
+  color: #7d5b22;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.formError {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: #fde8ea;
+  color: #b02a3b;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Diálogo de reinicio ---------- */
+
+.dialogBackdrop {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(12, 4, 8, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.dialog {
+  width: min(100%, 440px);
+  padding: 24px;
+  border: 1px solid var(--fiore-beige-border);
+  border-radius: 16px;
+  background: var(--fiore-warm);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+  color: var(--fiore-ink);
+}
+
+.dialogIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  background: var(--fiore-wine-100);
+  color: var(--fiore-wine-800);
+}
+
+.dialogIconSvg {
+  width: 22px;
+  height: 22px;
+}
+
+.dialogTitle {
+  margin: 0 0 8px;
+  color: var(--fiore-wine-900);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.dialogText {
+  margin: 0 0 22px;
+  color: var(--fiore-ink-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.dialogActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.dialogButton {
+  min-height: 38px;
+  padding: 8px 16px;
+  border: 1px solid var(--fiore-beige-border);
+  border-radius: 9px;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dialogButtonGhost {
+  background: #fff;
+  color: var(--fiore-wine-900);
+}
+
+.dialogButtonGhost:hover {
+  background: var(--fiore-beige);
+}
+
+.dialogButtonPrimary {
+  border-color: var(--fiore-wine-950);
+  background: var(--fiore-wine-950);
+  color: var(--fiore-warm);
+}
+
+.dialogButtonPrimary:hover {
+  border-color: var(--fiore-wine-900);
+  background: var(--fiore-wine-900);
+}
+
+/* ---------- Navegación móvil ---------- */
+
+@media (max-width: 900px) {
+  .appShell {
+    min-height: 620px;
+  }
+
+  .sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    box-shadow: 14px 0 36px rgba(25, 5, 10, 0.35);
+    transform: translateX(-100%);
+    visibility: hidden;
+    /* Al cerrar se oculta al final del deslizamiento; al abrir se muestra
+     * de inmediato para que el botón de cierre pueda recibir el foco. */
+    transition: transform 240ms ease, visibility 0s linear 240ms;
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform 240ms ease, visibility 0s linear 0s;
+  }
+
+  .closeMenuButton {
+    display: inline-grid;
+  }
+
+  .navOverlay {
+    position: absolute;
+    z-index: 4;
+    inset: 0;
+    display: block;
+    background: rgba(25, 5, 10, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 240ms ease, visibility 0s linear 240ms;
+  }
+
+  .navOverlayVisible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 240ms ease, visibility 0s linear 0s;
+  }
+
+  .mobileTopbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--fiore-beige-border);
+    background: #fff;
+  }
+
+  .menuButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 11px;
+    border: 1px solid var(--fiore-beige-border);
+    border-radius: 9px;
+    background: var(--fiore-warm);
+    color: var(--fiore-wine-900);
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .menuButton:hover {
+    background: var(--fiore-beige);
+  }
+
+  .menuButton svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .mobileTopbarLabel {
+    color: var(--fiore-ink-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .mainContent {
+    padding: 22px 16px 30px;
+  }
+
+  .cardHeader,
+  .panelHeader {
+    padding: 14px 16px;
+  }
+
+  .panelGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .intro {
+    align-items: flex-start;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .button {
+    flex: 1 1 auto;
+  }
+
+  .chromeLabel {
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+  }
+
+  .cardBadge,
+  .panelBadge {
+    display: none;
+  }
+
+  .statGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .productRow {
+    align-items: flex-start;
+  }
+
+  .productMetrics {
+    max-width: 45%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .navItem,
+  .sidebar,
+  .navOverlay,
+  .statCard {
+    transition: none;
+  }
+}
+
+/* ---------- B4 — Catálogo, movimientos y venta simulada ---------- */
+
+.actionGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.toolbarNote {
+  flex: 1 1 260px;
+  min-width: 0;
+  color: var(--fiore-ink-muted);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.primaryActionAlt {
+  border-color: var(--fiore-wine-300);
+  background: #fff;
+  color: var(--fiore-wine-900);
+}
+
+.primaryActionAlt:hover {
+  border-color: var(--fiore-wine-900);
+  background: var(--fiore-wine-50);
+}
+
+.movementAdjustment {
+  background: #fdf1d8;
+  color: #8a6524;
+}
+
+.deltaValue {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.deltaPositive {
+  color: #26734a;
+}
+
+.deltaNegative {
+  color: #b02a3b;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.pageInfo {
+  color: var(--fiore-ink-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.confirmationCard {
+  padding: 16px;
+  border: 1px solid var(--fiore-wine-300);
+  border-radius: 12px;
+  background: var(--fiore-wine-50);
+}
+
+.saleWarning {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border: 1px solid #e6c27a;
+  border-radius: 9px;
+  background: #fff8e8;
+  color: #7d5b22;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+/* ---------- B3 — Adaptación del inventario y del formulario ---------- */
+
+@media (max-width: 1100px) {
+  .inventoryTableWrap {
+    display: none;
+  }
+
+  .inventoryCards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .inventoryCards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .inventoryIntro {
+    align-items: stretch;
+  }
+
+  .primaryAction {
+    width: 100%;
+  }
+
+  .toolbarField,
+  .toolbarField:first-child {
+    flex-basis: 100%;
+  }
+
+  .formGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .calculatorGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .cardData {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .calculatorGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dialogBackdrop {
+    padding: 12px;
+  }
+
+  .productDialog {
+    max-height: calc(100vh - 24px);
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryAction,
+  .actionButton {
+    transition: none;
+  }
+}
+
+/* ---------- B5 — Reportes, gráficos de barras y exportación ---------- */
+
+.cardDescription {
+  margin: 4px 0 0;
+  color: var(--fiore-ink-muted);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.reportError {
+  margin: 0 0 16px;
+  padding: 11px 14px;
+  border: 1px solid #e3a5ad;
+  border-radius: 10px;
+  background: var(--fiore-wine-50);
+  color: var(--fiore-wine-900);
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.reportTableWrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0 20px 20px;
+}
+
+.reportTableWrap .inventoryTable {
+  min-width: 720px;
+}
+
+.reportBars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reportBarRow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reportBarHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.reportBarLabel {
+  min-width: 0;
+  color: var(--fiore-wine-900);
+  font-size: 0.82rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reportBarValue {
+  color: var(--fiore-ink);
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.reportBarTrack {
+  width: 100%;
+  height: 9px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--fiore-wine-100);
+}
+
+.reportBarFill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--fiore-wine-700), var(--fiore-wine-600));
+  transition: width 180ms ease;
+}
+
+.chartEmpty {
+  margin: 0;
+  color: var(--fiore-ink-muted);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.chartNote {
+  margin: 14px 0 0;
+  color: var(--fiore-ink-muted);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 760px) {
+  .reportTableWrap,
+  .reportMovementsWrap,
+  .reportSalesWrap {
+    overflow: visible;
+    padding: 0 12px 14px;
+  }
+
+  .reportTableWrap .inventoryTable {
+    display: block;
+    min-width: 0;
+  }
+
+  .reportTableWrap .inventoryTable thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .reportTableWrap .inventoryTable tbody {
+    display: grid;
+    gap: 10px;
+  }
+
+  .reportTableWrap .inventoryTable tbody tr {
+    display: grid;
+    gap: 6px;
+    padding: 12px;
+    border: 1px solid var(--fiore-beige-border);
+    border-radius: 12px;
+    background: #fff;
+  }
+
+  .reportTableWrap .inventoryTable tbody td {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 12px;
+    padding: 0;
+    border: 0;
+    text-align: right;
+  }
+
+  .reportTableWrap .inventoryTable tbody td::before {
+    content: attr(data-label);
+    flex: 0 0 auto;
+    color: var(--fiore-wine-800);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .reportBarHead {
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+
+  .chartNote {
+    font-size: 0.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reportBarFill {
+    transition: none;
+  }
+}
